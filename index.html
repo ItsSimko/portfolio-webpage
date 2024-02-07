@@ -1,14 +1,42 @@
 <!doctype html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-</head>
-<body>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./script/tailwind.cfg.js"></script>
+  </head>
+  <body class="bg-gradient-to-b to-sky-600 from-sky-50 h-screen">
+    <div id="main-container" class="w-8/12 mx-auto">
+      <div id="header" class="p-1 grid grid-cols-3 gap-4 mx-auto pt-4">
+        <div class="row-start-1 m-1">
+          <button
+            class="fa-brands fa-github fa-3x m-1 me-0 dark-light-item"
+          ></button>
+          <button
+            class="fa-brands fa-linkedin fa-3x m-1 dark-light-item"
+          ></button>
+        </div>
 
-    <script src="https://kit.fontawesome.com/9982368510.js" crossorigin="anonymous"></script>
-</body>
+        <div class="row-start-1 grid m-1">
+          <button class="row-start-1">Home</button>
+          <button class="row-start-1">About Me</button>
+          <button class="row-start-1">Projects</button>
+        </div>
+
+        <div class="row-start-1 text-end m-1">
+          <i class="fa-solid fa-moon fa-3x"></i>
+        </div>
+      </div>
+
+      <div id="current-page">
+        <div id="home-page"></div>
+      </div>
+    </div>
+    <script
+      src="https://kit.fontawesome.com/9982368510.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
