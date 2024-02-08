@@ -18,4 +18,4 @@ jobs:
         
       - name: Upload to FTP
         run: |
-          lftp -e "mirror -R --delete --verbose ./ /portfolio/; quit" -u ${{ secrets.ftp_username }},${{ secrets.ftp_password }} ftp://w38.wh-2.com
+          lftp -e "mirror -R --delete --verbose ./ ./portfolio/; quit" -u ${{ secrets.ftp_username }},${{ secrets.ftp_password }} ftp://w38.wh-2.com
