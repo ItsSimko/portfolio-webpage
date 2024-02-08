@@ -15,7 +15,7 @@ jobs:
 
       - name: Install FTP Client
         run: sudo apt-get install -y lftp
-        
+
       - name: Upload to FTP
         run: |
-          lftp -e "mirror -R --delete --verbose ./ ./portfolio/; quit" -u ${{ secrets.ftp_username }},${{ secrets.ftp_password }} ftp://w38.wh-2.com
+          lftp -e "mirror -R --exclude-glob .git --delete --verbose ./ ./portfolio/; quit" -u ${{ secrets.ftp_username }},${{ secrets.ftp_password }} ftp://w38.wh-2.com
