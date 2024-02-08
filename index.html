@@ -4,25 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- tailwind css -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- tailwind cfg -->
     <script src="./script/tailwind.cfg.js"></script>
   </head>
   <body class="bg-gradient-to-b to-sky-600 from-sky-50 h-screen">
     <div id="main-container" class="w-8/12 mx-auto">
       <div id="header" class="p-1 grid grid-cols-3 gap-4 mx-auto pt-4">
         <div class="row-start-1 m-1">
-          <button
+          <a
+            href="https://github.com/ItsSimko/A1-Network-App-Dev"
             class="fa-brands fa-github fa-3x m-1 me-0 dark-light-item"
-          ></button>
-          <button
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/alex-simko/"
             class="fa-brands fa-linkedin fa-3x m-1 dark-light-item"
-          ></button>
+          ></a>
         </div>
 
         <div class="row-start-1 grid m-1">
-          <button class="row-start-1">Home</button>
-          <button class="row-start-1">About Me</button>
-          <button class="row-start-1">Projects</button>
+          <button class="row-start-1" id="home-button">Home</button>
+          <button class="row-start-1" id="about-button">About Me</button>
+          <button class="row-start-1" id="project-button">Projects</button>
         </div>
 
         <div class="row-start-1 text-end m-1">
@@ -30,10 +35,33 @@
         </div>
       </div>
 
-      <div id="current-page">
-        <div id="home-page"></div>
+      <div id="current-page z-0 h-screen">
+        <div
+          id="loading-spinner"
+          class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+        >
+          <i class="fa-solid fa-spinner fa-spin fa-10x mx-auto"></i>
+        </div>
+
+        <div id="home-page" class="hidden"></div>
+        <div id="about-page" class="hidden">about content</div>
+        <div id="project-page" class="hidden">project content</div>
       </div>
     </div>
+
+    <!-- jQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Our content loader -->
+    <script src="./script/spaProccessor.js"></script>
+
+    <script src="./script/clickHandlers.js"></script>
+
+    <!-- font awesome for icons -->
     <script
       src="https://kit.fontawesome.com/9982368510.js"
       crossorigin="anonymous"
