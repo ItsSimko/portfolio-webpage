@@ -11,7 +11,7 @@
     <script src="./script/tailwind.cfg.js"></script>
   </head>
   <body class="bg-gradient-to-b to-sky-600 from-sky-50 h-screen">
-    <div id="main-container" class="w-8/12 mx-auto">
+    <div id="main-container" class="mx-auto">
       <div id="header" class="p-1 grid grid-cols-3 gap-4 mx-auto pt-4">
         <div class="row-start-1 m-1">
           <a
@@ -43,10 +43,10 @@
         </div>
 
         <div id="home-page" class="hidden">
-          <div class="grid grid-cols-2 gap-4">
-            <!-- Found refeernce here: https://play.tailwindcss.com/q6LZjWKr97 -->
+          <div class="flex flex-col md:flex-row">
+            <!-- Column 1 -->
             <div
-              class="w-max ms-auto h-100 flex flex-col items-center justify-center"
+              class="md:w-1/2 w-max ms-auto h-100 flex flex-col items-center justify-center"
             >
               <h1
                 class="text-right ms-auto animate-typing overflow-hidden whitespace-nowrap border-r-4 border-r-white pr-2 text-5xl text-black font-bold"
@@ -60,16 +60,20 @@
                 Second Year Software Engineering Technology Student
               </p>
             </div>
-            <div class="p-5">
-              <span class="w-100">
-                Hello, I am Alex! <br /><br />Currently this website is pretty
-                boring and empty, I am actively developing it! If you wish to
-                see what im up to check out my github in the top left.<br /><br />
-                If you made it this far hopefully we can connect via a video
-                call, feel free to contact me with the details on my resume!
-                <br /><br />
-                Take care!
-              </span>
+
+            <!-- Column 2 -->
+            <div class="md:w-1/2">
+              <div class="p-5">
+                <span class="w-100">
+                  Hello, I am Alex! <br /><br />Currently this website is pretty
+                  boring and empty, I am actively developing it! If you wish to
+                  see what im up to check out my github in the top left.<br /><br />
+                  If you made it this far hopefully we can connect via a video
+                  call, feel free to contact me with the details on my resume!
+                  <br /><br />
+                  Take care!
+                </span>
+              </div>
             </div>
           </div>
         </div>
