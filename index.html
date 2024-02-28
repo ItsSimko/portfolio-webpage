@@ -16,22 +16,33 @@
         <div class="row-start-1 m-1">
           <a
             href="https://github.com/ItsSimko/"
-            class="fa-brands fa-github fa-3x m-1 me-0 dark-light-item"
+            class="fa-brands fa-github fa-3x m-1 me-0 dark-light-item md:hover:text-sky-300"
           ></a>
           <a
             href="https://www.linkedin.com/in/alex-simko/"
-            class="fa-brands fa-linkedin fa-3x m-1 dark-light-item"
+            class="fa-brands fa-linkedin fa-3x m-1 dark-light-item md:hover:text-sky-300"
           ></a>
         </div>
 
-        <div class="row-start-1 grid m-1">
-          <button class="row-start-1" id="home-button">Home</button>
-          <button class="row-start-1" id="project-button">Projects</button>
+        <div class="row-start-1 grid m-1 text-center">
+          <div class="row-start-1 grid m-1 w-6/12 md:hover:bg-sky-200 rounded-full mx-auto">
+            <button class="" id="home-button">Home</button>
+            <!-- <button class="w-6/12 row-start-1 hover:bg-sky-200 rounded-full" id="project-button">Projects</button> -->
+          </div>
+          <div class="row-start-1 grid m-1 w-6/12 md:hover:bg-sky-200 rounded-full mx-auto">
+            <!-- <button class="hover:bg-sky-200 rounded-full" id="home-button">Home</button> -->
+            <button class="" id="project-button">Projects</button>
+          </div>
         </div>
 
-        <div class="row-start-1 text-end m-1">
+        <!-- <div class="row-start-1 grid m-1">
+          <button class="w-6/12 row-start-1 hover:bg-sky-200 rounded-full" id="home-button">Home</button>
+          <button class="w-6/12 row-start-1 hover:bg-sky-200 rounded-full" id="project-button">Projects</button>
+        </div> -->
+
+        <!-- <div class="row-start-1 text-end m-1">
           <button id="dark-mode" class="fa-solid fa-moon fa-3x"></button>
-        </div>
+        </div> -->
       </div>
 
       <div id="current-page z-0 h-screen">
@@ -49,13 +60,13 @@
               class="md:w-1/2 h-100 flex flex-col items-center justify-center"
             >
               <h1
-                class="text-right ms-auto w-100 animate-typing overflow-hidden whitespace-nowrap border-r-4 border-r-white pr-2 text-5xl text-black font-bold"
+                class="lg:md:text-right sm:text-center md:ms-auto w-100 animate-typing overflow-hidden whitespace-nowrap border-r-4 border-r-white pr-2 text-5xl text-black font-bold"
               >
                 Alex Simko
               </h1>
 
               <p
-                class="text-right ms-auto w-100 text-base sm:text-xs lg:text-lg animate-typing overflow-hidden whitespace-nowrap border-r-4 border-r-white p-1 text-5xl text-black"
+                class="lg:md:text-right lg:md:ms-auto w-100 text-base sm:text-xs lg:text-lg animate-typing overflow-hidden whitespace-nowrap border-r-4 border-r-white p-1 text-5xl text-black"
               >
                 Second Year Software Engineering Technology Student
               </p>
@@ -77,11 +88,81 @@
             </div>
           </div>
         </div>
-        <div id="project-page" class="hidden">
+        <div id="project-page" class="hidden ">
+          <!-- <div class="max-w-2xl mx-auto">
+             Project Header with Image 
+            <div class="flex items-center mb-6">
+              <img src="your_project_image.jpg" alt="Project Image" class="w-16 h-16 mr-4 rounded-full">
+              <h1 class="text-2xl font-bold">Project Name</h1>
+            </div>
+        
+             Project Features List 
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <div class="flex-shrink-0">
+                  <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <p class="ml-3 text-gray-700">Feature 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </li>
+        
+              <li class="flex items-start">
+                <div class="flex-shrink-0">
+                  <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <p class="ml-3 text-gray-700">Feature 2: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </li>
+        
+              <li class="flex items-start">
+                <div class="flex-shrink-0">
+                  <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <p class="ml-3 text-gray-700">Feature 3: Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+              </li>
+            </ul>
+          </div> -->
+          <!-- <div class="">
+            <div class="max-w-md bg-white p-8 rounded-md shadow-md">
+              <img src="path/to/your-image.jpg" alt="Image" class="w-full h-48 object-cover mb-4 rounded-md">
+              <p class="text-gray-700 text-sm">Short Description goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+          </div> -->
+
+
+          <!-- <div class="max-w-2xl mx-auto">
+
+            <div class="flex items-center mb-6">
+              <img src="your_project_image.jpg" alt="Project Image" class="w-16 h-16 mr-4 rounded-full">
+              <h1 class="text-2xl font-bold">Project Name</h1>
+            </div>
+        
+
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <div class="flex-shrink-0">
+                  <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <p class="ml-3 text-gray-700">Feature 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </li>
+        
+              <li class="flex items-start">
+                <div class="flex-shrink-0">
+                  <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <p class="ml-3 text-gray-700">Feature 2: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </li>
+        
+              <li class="flex items-start">
+                <div class="flex-shrink-0">
+                  <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <p class="ml-3 text-gray-700">Feature 3: Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+              </li>
+            </ul>
+          </div> -->
           <div class="flex flex-col">
             <div class="p-5">
               <span class="w-100">
-                Currently being neglected, check out my git hub for more!
+                Currently being neglected, check out my <a href="https://github.com/itssimko"  target="_blank"> <u>GitHub</u></a> for more!
               </span>
             </div>
         </div>
