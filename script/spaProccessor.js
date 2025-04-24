@@ -29,7 +29,14 @@ async function loadNewContent(className) {
 async function loadGallery() {
   try {
     console.log('Loading gallery...');
-    const response = await fetch('./config/gallery.json');
+    // Try both relative path and full path for local file access
+    let response;
+    try {
+      response = await fetch('./config/gallery.json');
+      if (!response.ok) throw new Error('Failed to fetch');
+    } catch (e) {
+      response = await fetch('config/gallery.json');
+    }
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -74,6 +81,8 @@ async function loadGallery() {
       <div class="text-center text-red-500">
         <p>Failed to load gallery</p>
         <p>${error.message}</p>
+        <p class="mt-4">Please make sure you're viewing this through a local web server.</p>
+        <p class="text-sm">You can run: <code class="bg-gray-100 p-1">python -m http.server 8000</code></p>
       </div>
     `);
   }
