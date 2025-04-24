@@ -28,13 +28,24 @@ async function loadNewContent(className) {
 
 async function loadGallery() {
   try {
+    console.log('Loading gallery...');
     const response = await fetch('./config/gallery.json');
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
     const data = await response.json();
+    console.log('Gallery data loaded:', data);
     
     const container = $('#gallery-container');
     container.empty();
     
-    data.projects.forEach(project => {
+    if (!data.projects || data.projects.length === 0) {
+      container.append('<p class="text-center">No projects found in gallery</p>');
+      return;
+    }
+    
+    data.projects.forEach((project, index) => {
+      console.log(`Loading project ${index}: ${project.title}`);
       container.append(`
         <div class="bg-white p-6 rounded-lg shadow-md">
           <h3 class="text-xl font-bold mb-2">${project.title}</h3>
@@ -59,6 +70,12 @@ async function loadGallery() {
     });
   } catch (error) {
     console.error('Error loading gallery:', error);
+    $('#gallery-container').html(`
+      <div class="text-center text-red-500">
+        <p>Failed to load gallery</p>
+        <p>${error.message}</p>
+      </div>
+    `);
   }
 }
 
