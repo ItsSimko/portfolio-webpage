@@ -1,0 +1,18 @@
+{
+  "projects": [
+    {
+      "title": "Website Redesign",
+      "description": "Complete overhaul of company website with modern design",
+      "techStack": ["React", "Tailwind CSS", "Node.js"],
+      "beforeImage": "images/before1.jpg",
+      "afterImage": "images/after1.jpg"
+    },
+    {
+      "title": "Mobile App UI Update",
+      "description": "Improved user experience and modernized interface",
+      "techStack": ["Flutter", "Firebase", "Dart"],
+      "beforeImage": "images/before2.jpg",
+      "afterImage": "images/after2.jpg"
+    }
+  ]
+}
