@@ -1,28 +1,85 @@
-var homepageId = "#home-page";
 var spinnerId = "#loading-spinner";
-var currentContentId;
+var pageContainerId = "#page-content";
+var currentPage;
+
+// Map hash values to page files
+const routes = {
+  '': 'home',
+  'home': 'home',
+  'projects': 'projects',
+  'about': 'about',
+  'contact': 'contact'
+};
+
+// Cache loaded pages to avoid re-fetching
+const pageCache = {};
 
 $(() => {
-  loadNewContent(homepageId);
+  // Load the page based on URL hash, or default to home
+  const hash = window.location.hash.replace('#', '');
+  const initialPage = routes[hash] || 'home';
+  loadPage(initialPage);
+  
+  // Listen for browser back/forward navigation
+  $(window).on('hashchange', function() {
+    const hash = window.location.hash.replace('#', '');
+    const page = routes[hash] || 'home';
+    loadPage(page);
+  });
 });
 
-async function loadNewContent(className) {
-  if (className != currentContentId) {
-    $(currentContentId).fadeOut();
-    currentContentId = className;
+async function loadPage(pageName) {
+  if (pageName === currentPage) return;
+  
+  currentPage = pageName;
+  
+  // Update URL hash
+  if (window.location.hash !== '#' + pageName) {
+    history.replaceState(null, null, '#' + pageName);
+  }
 
-    toggleContentLoader(true);
+  toggleContentLoader(true);
 
-    setTimeout(async () => {
-      $(className).fadeOut("hidden");
-      $(className).fadeIn("block");
+  try {
+    let html;
+    
+    // Check cache first
+    if (pageCache[pageName]) {
+      html = pageCache[pageName];
+    } else {
+      // Fetch the page HTML
+      const response = await fetch(`./pages/${pageName}.html`);
+      if (!response.ok) {
+        throw new Error(`Page not found: ${pageName}`);
+      }
+      html = await response.text();
+      pageCache[pageName] = html;
+    }
+
+    // Small delay for smooth transition
+    await new Promise(resolve => setTimeout(resolve, 300));
+
+    // Update page content
+    $(pageContainerId).fadeOut(200, async function() {
+      $(this).html(html).fadeIn(200);
       
-      if (className === "#project-page") {
+      // Run page-specific initialization
+      if (pageName === 'projects') {
         await loadGallery();
       }
-
+      
       toggleContentLoader(false);
-    }, 1500);
+    });
+
+  } catch (error) {
+    console.error('Error loading page:', error);
+    $(pageContainerId).html(`
+      <div class="text-center text-red-500 p-8">
+        <p class="text-xl">Page not found</p>
+        <p>${error.message}</p>
+      </div>
+    `);
+    toggleContentLoader(false);
   }
 }
 

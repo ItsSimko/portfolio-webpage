@@ -1,11 +1,11 @@
 $("#about-button").click(() => {
-  loadNewContent("#about-page");
+  loadPage("about");
 });
 
 $("#home-button").click(() => {
-  loadNewContent("#home-page");
+  loadPage("home");
 });
 
 $("#project-button").click(() => {
-  loadNewContent("#project-page");
+  loadPage("projects");
 });
