@@ -6,7 +6,8 @@
       "description": "Complete overhaul of company website with modern design",
       "techStack": ["React", "Tailwind CSS", "Node.js"],
       "beforeImage": "images/before1.jpg",
-      "afterImage": "images/after1.jpg"
+      "afterImage": "images/after1.jpg",
+      "liveUrl": "https://alexsimko.dev/tcps"
     },
     {
       "type": "showcase",
