@@ -46,6 +46,32 @@ async function loadGallery() {
     const container = $('#gallery-container');
     container.empty();
     
+    // Add image modal if it doesn't exist
+    if ($('#image-modal').length === 0) {
+      $('body').append(`
+        <div id="image-modal" class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden flex items-center justify-center p-4">
+          <div class="relative max-w-4xl max-h-full">
+            <button id="modal-close" class="absolute -top-10 right-0 text-white text-3xl hover:text-gray-300">&times;</button>
+            <img id="modal-image" src="" alt="Expanded image" class="max-w-full max-h-[90vh] rounded-lg shadow-2xl">
+          </div>
+        </div>
+      `);
+      
+      // Close modal on click
+      $('#image-modal, #modal-close').on('click', function(e) {
+        if (e.target === this || e.target.id === 'modal-close') {
+          $('#image-modal').addClass('hidden').removeClass('flex');
+        }
+      });
+      
+      // Close on escape key
+      $(document).on('keydown', function(e) {
+        if (e.key === 'Escape') {
+          $('#image-modal').addClass('hidden').removeClass('flex');
+        }
+      });
+    }
+    
     if (!data.projects || data.projects.length === 0) {
       container.append('<p class="text-center">No projects found in gallery</p>');
       return;
@@ -53,27 +79,76 @@ async function loadGallery() {
     
     data.projects.forEach((project, index) => {
       console.log(`Loading project ${index}: ${project.title}`);
-      container.append(`
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="text-xl font-bold mb-2">${project.title}</h3>
-          <p class="mb-4">${project.description}</p>
-          <div class="grid grid-cols-2 gap-4 mb-4">
-            <div>
-              <h4 class="font-semibold">Before</h4>
-              <img src="${project.beforeImage}" alt="Before" class="w-full h-auto rounded">
+      
+      // Determine project type (default to before-after for backwards compatibility)
+      const projectType = project.type || 'before-after';
+      
+      if (projectType === 'before-after') {
+        container.append(`
+          <div class="bg-white p-4 rounded-lg shadow-md">
+            <h3 class="text-lg font-bold mb-2">${project.title}</h3>
+            <p class="text-sm mb-3">${project.description}</p>
+            <div class="grid grid-cols-2 gap-3 mb-3">
+              <div>
+                <h4 class="font-semibold text-sm mb-1">Before</h4>
+                <img src="${project.beforeImage}" alt="Before" class="w-full max-h-40 object-contain rounded-lg shadow cursor-pointer hover:opacity-80 transition-opacity expandable-image">
+              </div>
+              <div>
+                <h4 class="font-semibold text-sm mb-1">After</h4>
+                <img src="${project.afterImage}" alt="After" class="w-full max-h-40 object-contain rounded-lg shadow cursor-pointer hover:opacity-80 transition-opacity expandable-image">
+              </div>
             </div>
-            <div>
-              <h4 class="font-semibold">After</h4>
-              <img src="${project.afterImage}" alt="After" class="w-full h-auto rounded">
+            <div class="flex flex-wrap gap-1">
+              ${project.techStack.map(tech => 
+                `<span class="bg-sky-100 text-sky-800 px-2 py-0.5 rounded-full text-xs">${tech}</span>`
+              ).join('')}
             </div>
           </div>
-          <div class="flex flex-wrap gap-2">
-            ${project.techStack.map(tech => 
-              `<span class="bg-sky-100 text-sky-800 px-3 py-1 rounded-full text-sm">${tech}</span>`
-            ).join('')}
+        `);
+      } else if (projectType === 'showcase') {
+        // Support both single image and array of images
+        const images = project.images || (project.image ? [project.image] : []);
+        
+        container.append(`
+          <div class="bg-white p-4 rounded-lg shadow-md">
+            <h3 class="text-lg font-bold mb-2">${project.title}</h3>
+            <p class="text-sm mb-3">${project.description}</p>
+            ${images.length > 0 ? `
+              <div class="grid grid-cols-${Math.min(images.length, 4)} gap-2 mb-3">
+                ${images.map((img, i) => `
+                  <img src="${img}" alt="${project.title} ${i + 1}" class="w-full h-24 object-contain rounded cursor-pointer hover:opacity-80 transition-opacity expandable-image">
+                `).join('')}
+              </div>
+            ` : ''}
+            <div class="flex flex-wrap gap-1 mb-3">
+              ${project.techStack.map(tech => 
+                `<span class="bg-sky-100 text-sky-800 px-2 py-0.5 rounded-full text-xs">${tech}</span>`
+              ).join('')}
+            </div>
+            <div class="flex gap-2">
+              ${project.liveUrl ? `
+                <a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" 
+                   class="bg-sky-500 hover:bg-sky-600 text-white px-3 py-1.5 rounded-lg transition-colors text-sm">
+                  Live Demo
+                </a>
+              ` : ''}
+              ${project.repoUrl ? `
+                <a href="${project.repoUrl}" target="_blank" rel="noopener noreferrer"
+                   class="bg-gray-700 hover:bg-gray-800 text-white px-3 py-1.5 rounded-lg transition-colors text-sm">
+                  GitHub
+                </a>
+              ` : ''}
+            </div>
           </div>
-        </div>
-      `);
+        `);
+      }
+    });
+    
+    // Add click handler for expandable images
+    $('.expandable-image').on('click', function() {
+      const imgSrc = $(this).attr('src');
+      $('#modal-image').attr('src', imgSrc);
+      $('#image-modal').removeClass('hidden').addClass('flex');
     });
   } catch (error) {
     console.error('Error loading gallery:', error);

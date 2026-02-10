@@ -1,6 +1,7 @@
 {
   "projects": [
     {
+      "type": "before-after",
       "title": "Website Redesign",
       "description": "Complete overhaul of company website with modern design",
       "techStack": ["React", "Tailwind CSS", "Node.js"],
@@ -8,11 +9,13 @@
       "afterImage": "images/after1.jpg"
     },
     {
-      "title": "Mobile App UI Update",
-      "description": "Improved user experience and modernized interface",
-      "techStack": ["Flutter", "Firebase", "Dart"],
-      "beforeImage": "images/before2.jpg",
-      "afterImage": "images/after2.jpg"
-    }
+      "type": "showcase",
+      "title": "Weather Forecast App",
+      "description": "Full-stack weather application with user authentication, real-time forecasts, and admin controls. Features JWT authentication, secure password hashing, and Entity Framework for database management.",
+      "techStack": ["ASP.NET MVC", "Vue.js", "C#", "Entity Framework", "TypeScript"],
+      "images": ["images/weather-app.png", "images/weather-app2.png", "images/weather-app3.png", "images/weather-app4.png"],
+      "liveUrl": "https://alexsimko.dev/weather",
+      "repoUrl": "https://github.com/ItsSimko/MVC-Weather-App"
+    } 
   ]
 }
