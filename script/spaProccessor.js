@@ -140,10 +140,18 @@ async function loadGallery() {
       // Determine project type (default to before-after for backwards compatibility)
       const projectType = project.type || 'before-after';
       
+      // Tag for in-progress projects
+      const inProgressTag = project.inProgress
+        ? `<span class="inline-block bg-yellow-400 text-xs text-black font-semibold px-2 py-1 rounded ml-2 align-middle">In Progress</span>`
+        : "";
+
       if (projectType === 'before-after') {
         container.append(`
           <div class="bg-white p-4 rounded-lg shadow-md">
-            <h3 class="text-lg font-bold mb-2">${project.title}</h3>
+            <div class="flex items-center mb-2">
+              <h2 class="text-lg font-bold">${project.title}</h2>
+              ${inProgressTag}
+            </div>
             <p class="text-sm mb-3">${project.description}</p>
             <div class="grid grid-cols-2 gap-3 mb-3">
               <div>
@@ -155,10 +163,18 @@ async function loadGallery() {
                 <img src="${project.afterImage}" alt="After" class="w-full max-h-40 object-contain rounded-lg shadow cursor-pointer hover:opacity-80 transition-opacity expandable-image">
               </div>
             </div>
-            <div class="flex flex-wrap gap-1">
+            <div class="flex flex-wrap gap-1 mb-3">
               ${project.techStack.map(tech => 
                 `<span class="bg-sky-100 text-sky-800 px-2 py-0.5 rounded-full text-xs">${tech}</span>`
               ).join('')}
+            </div>
+            <div class="flex gap-2">
+              ${project.liveUrl ? `
+                <a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" 
+                   class="bg-sky-500 hover:bg-sky-600 text-white px-3 py-1.5 rounded-lg transition-colors text-sm">
+                  Live Demo
+                </a>
+              ` : ''}
             </div>
           </div>
         `);
@@ -168,7 +184,10 @@ async function loadGallery() {
         
         container.append(`
           <div class="bg-white p-4 rounded-lg shadow-md">
-            <h3 class="text-lg font-bold mb-2">${project.title}</h3>
+            <div class="flex items-center mb-2">
+              <h2 class="text-lg font-bold">${project.title}</h2>
+              ${inProgressTag}
+            </div>
             <p class="text-sm mb-3">${project.description}</p>
             ${images.length > 0 ? `
               <div class="grid grid-cols-${Math.min(images.length, 4)} gap-2 mb-3">

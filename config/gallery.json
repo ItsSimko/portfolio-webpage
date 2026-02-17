@@ -1,13 +1,30 @@
 {
   "projects": [
     {
+      "type": "showcase",
+      "title": "PhysioLens - Capstone Project",
+      "description": "PhysioLens is a desktop application that provides physiotherapists with real-time biomechanical analysis of patients performing rehabilitation exercises, without requiring physical motion trackers. It uses markerless pose estimation to extract joint angles and kinematic data, visualized through a live camera overlay and web portal. <br/>This is being completed as a apart of my Capstone project for school in a group of 4.",
+      "techStack": ["Python", "React ", "TypeScript","Electron", "Node.JS", "AWS Cognito", "AWS RDS", "Computer Vision", "Unity 3D"],
+      "inProgress": true
+    },
+    {
       "type": "before-after",
-      "title": "Website Redesign",
-      "description": "Complete overhaul of company website with modern design",
+      "title": "Business Website Redesign",
+      "description": "Complete overhaul of company website with modern design. Designed for a small business owner who wanted a updated look and feel for their website.",
       "techStack": ["React", "Tailwind CSS", "Node.js"],
       "beforeImage": "images/before1.jpg",
       "afterImage": "images/after1.jpg",
-      "liveUrl": "https://alexsimko.dev/tcps"
+      "liveUrl": "https://alexsimko.dev/tcps",
+      "inProgress": false
+    },
+    {
+      "type": "showcase",
+      "title": "Shopify Website Design",
+      "description": "Designing and creating a Shopify website for a local business. Managing communication with client, gathering requirements, and mock-up design work. The website will be a landing page, event registration, and e-commerce platform all in one.  <br/> This is a work in progress with a delivery expected by March 2026.",
+      "techStack": ["Liquid (Shopify)", "Tailwind CSS"],
+      "beforeImage": "images/before1.jpg",
+      "afterImage": "images/after1.jpg",
+      "inProgress": true
     },
     {
       "type": "showcase",
@@ -16,7 +33,16 @@
       "techStack": ["ASP.NET MVC", "Vue.js", "C#", "Entity Framework", "TypeScript"],
       "images": ["images/weather-app.png", "images/weather-app2.png", "images/weather-app3.png", "images/weather-app4.png"],
       "liveUrl": "https://alexsimko.dev/weather",
-      "repoUrl": "https://github.com/ItsSimko/MVC-Weather-App"
-    } 
+      "repoUrl": "https://github.com/ItsSimko/MVC-Weather-App",
+      "inProgress": false
+    },
+    {
+      "type": "showcase",
+      "title": "Portfolio Website",
+      "description": "The website you are currently viewing! Built in plain HTML, and JS to prove to my self I can still build a website without a framework. I also used Tailwind CSS to speed up the styling process and make it look nice. I also tried to mimic my own SPA, component based architecture to make it easier to maintain and add new features in the future.",
+      "techStack": ["HTML", "CSS", "JavaScript", "Tailwind CSS"],
+      "repoUrl": "https://github.com/ItsSimko/portfolio-webpage",
+      "inProgress": false
+    }
   ]
 }
