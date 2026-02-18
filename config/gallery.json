@@ -3,7 +3,7 @@
     {
       "type": "showcase",
       "title": "PhysioLens - Capstone Project",
-      "description": "PhysioLens is a desktop application that provides physiotherapists with real-time biomechanical analysis of patients performing rehabilitation exercises, without requiring physical motion trackers. It uses markerless pose estimation to extract joint angles and kinematic data, visualized through a live camera overlay and web portal. <br/>This is being completed as a apart of my Capstone project for school in a group of 4.",
+      "description": "PhysioLens is a desktop application that provides physiotherapists with real-time biomechanical analysis of patients performing rehabilitation exercises, without requiring physical motion trackers. It uses markerless pose estimation to extract joint angles and kinematic data, visualized through a live camera overlay and web portal.<br /> Personally responsible for the electron application, with react renderer. However, comfortable across the stack and assisted in Python.<br />This is being completed as a apart of my Capstone project for school in a group of 4.",
       "techStack": ["Python", "React ", "TypeScript","Electron", "Node.JS", "AWS Cognito", "AWS RDS", "Computer Vision", "Unity 3D"],
       "inProgress": true
     },
@@ -11,7 +11,7 @@
       "type": "before-after",
       "title": "Business Website Redesign",
       "description": "Complete overhaul of company website with modern design. Designed for a small business owner who wanted a updated look and feel for their website.",
-      "techStack": ["React", "Tailwind CSS", "Node.js"],
+      "techStack": ["Vue", "Tailwind CSS"],
       "beforeImage": "images/before1.jpg",
       "afterImage": "images/after1.jpg",
       "liveUrl": "https://alexsimko.dev/tcps",
