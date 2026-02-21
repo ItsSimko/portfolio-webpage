@@ -19,6 +19,15 @@
     },
     {
       "type": "showcase",
+      "title": "NS Hardscaping Website",
+      "description": "A modern business website built in React for NS Hardscaping, a landscaping company. The site features a clean design, responsive layout, and showcases the company's services and portfolio. Developed with a focus on performance and accessibility.",
+      "techStack": ["React", "Tailwind CSS", "Radix UI"],
+      "images": ["images/ns1.png", "images/ns2.png", "images/ns3.png"],
+      "liveUrl": "https://nshardscaping.ca/",
+      "inProgress": false
+    },
+    {
+      "type": "showcase",
       "title": "Shopify Website Design",
       "description": "Designing and creating a Shopify website for a local business. Managing communication with client, gathering requirements, and mock-up design work. The website will be a landing page, event registration, and e-commerce platform all in one.  <br/> This is a work in progress with a delivery expected by March 2026.",
       "techStack": ["Liquid (Shopify)", "Tailwind CSS"],
